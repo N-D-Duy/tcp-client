@@ -1,0 +1,6 @@
+/home/dnd/Workspace/cs-client/bin/Debug/net40/Assembly-CSharp.dll
+/home/dnd/Workspace/cs-client/bin/Debug/net40/Assembly-CSharp.pdb
+/home/dnd/Workspace/cs-client/obj/Debug/net40/Assembly-CSharp.GeneratedMSBuildEditorConfig.editorconfig
+/home/dnd/Workspace/cs-client/obj/Debug/net40/Assembly-CSharp.csproj.CoreCompileInputs.cache
+/home/dnd/Workspace/cs-client/obj/Debug/net40/Assembly-CSharp.dll
+/home/dnd/Workspace/cs-client/obj/Debug/net40/Assembly-CSharp.pdb

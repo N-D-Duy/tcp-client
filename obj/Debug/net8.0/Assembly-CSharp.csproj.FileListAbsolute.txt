@@ -1,0 +1,12 @@
+/home/dnd/Workspace/cs-client/bin/Debug/net8.0/Assembly-CSharp
+/home/dnd/Workspace/cs-client/bin/Debug/net8.0/Assembly-CSharp.deps.json
+/home/dnd/Workspace/cs-client/bin/Debug/net8.0/Assembly-CSharp.runtimeconfig.json
+/home/dnd/Workspace/cs-client/bin/Debug/net8.0/Assembly-CSharp.dll
+/home/dnd/Workspace/cs-client/bin/Debug/net8.0/Assembly-CSharp.pdb
+/home/dnd/Workspace/cs-client/obj/Debug/net8.0/Assembly-CSharp.GeneratedMSBuildEditorConfig.editorconfig
+/home/dnd/Workspace/cs-client/obj/Debug/net8.0/Assembly-CSharp.csproj.CoreCompileInputs.cache
+/home/dnd/Workspace/cs-client/obj/Debug/net8.0/Assembly-CSharp.dll
+/home/dnd/Workspace/cs-client/obj/Debug/net8.0/refint/Assembly-CSharp.dll
+/home/dnd/Workspace/cs-client/obj/Debug/net8.0/Assembly-CSharp.pdb
+/home/dnd/Workspace/cs-client/obj/Debug/net8.0/Assembly-CSharp.genruntimeconfig.cache
+/home/dnd/Workspace/cs-client/obj/Debug/net8.0/ref/Assembly-CSharp.dll
