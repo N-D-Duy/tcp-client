@@ -21,7 +21,6 @@ public class Service
 
     public void login(string username, string pass, string version)
 	{
-        Out.Log("Login");
 		// gI().setClientType();
 		try
 		{

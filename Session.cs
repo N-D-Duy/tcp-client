@@ -38,7 +38,7 @@ public class Session : ISession
 					}
 					try
 					{
-						Thread.Sleep(5);
+						Thread.Sleep(10);
 					}
 					catch (Exception ex)
 					{
@@ -139,13 +139,16 @@ public class Session : ISession
 			}
 		}
 
+		/*
+		b: command chinh
+		num2: so luong byte cua data
+		array: data
+		*/
 		private Message readMessage()
 		{
 			int num = 200;
 			try
 			{
-				Out.Log("..." + dis.ReadSByte());
-
 				sbyte b = dis.ReadSByte();
 				num = b;
 				if (getKeyComplete)
@@ -397,7 +400,6 @@ public class Session : ISession
 	public static sbyte readKey(sbyte b)
 	{
 		sbyte[] array = key;
-		Out.Log("readkey: " + array.Length);
 		sbyte result = (sbyte)((array[curR++] & 0xFF) ^ (b & 0xFF));
 		if (curR >= key.Length)
 		{

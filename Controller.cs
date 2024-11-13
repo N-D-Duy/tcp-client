@@ -26,7 +26,6 @@ public class Controller : IMessageHandler
 
     public void OnMessage(Message message)
     {
-        Out.Log("OnMessage: " + message.command);
         try{
             switch (message.command)
             {
@@ -35,9 +34,9 @@ public class Controller : IMessageHandler
                         Out.Log("Login OK");
                         break;
                     }
-                case -29:
+                case CMD.SERVER_MESSAGE:
                     {
-                        Out.Log("Login Fail");
+                        Out.Log(message.reader().ReadUTF());
                         break;
                     }
                 default:

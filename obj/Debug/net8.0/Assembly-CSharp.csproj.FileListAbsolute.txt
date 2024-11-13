@@ -10,3 +10,4 @@
 /home/dnd/Workspace/cs-client/obj/Debug/net8.0/Assembly-CSharp.pdb
 /home/dnd/Workspace/cs-client/obj/Debug/net8.0/Assembly-CSharp.genruntimeconfig.cache
 /home/dnd/Workspace/cs-client/obj/Debug/net8.0/ref/Assembly-CSharp.dll
+/home/dnd/Workspace/cs-client/obj/Debug/net8.0/Assembly-CSharp.sourcelink.json
