@@ -40,4 +40,50 @@ public class Service
 			Out.LogError(ex.ToString());
 		}
 	}
+
+	public void register(string username, string pass)
+	{
+		try
+		{
+			Message message = messageNotLogin(-126);
+			message.writer().writeUTF(username);
+			message.writer().writeUTF(pass);
+			session.SendMessage(message);
+			message.cleanup();
+		}
+		catch (Exception ex)
+		{
+			Out.LogError(ex.ToString());
+		}
+	}
+
+	public void sendSMS(string phone, string content)
+	{
+		try
+		{
+			Message message = messageNotLogin(-124);
+			message.writer().writeUTF(phone);
+			message.writer().writeUTF(content);
+			session.SendMessage(message);
+			message.cleanup();
+		}
+		catch (Exception ex)
+		{
+			Out.LogError(ex.ToString());
+		}
+	}
+
+	public void getClientInfo()
+	{
+		try
+		{
+			Message message = messageNotLogin(-125);
+			session.SendMessage(message);
+			message.cleanup();
+		}
+		catch (Exception ex)
+		{
+			Out.LogError(ex.ToString());
+		}
+	}
 }

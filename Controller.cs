@@ -26,10 +26,16 @@ public class Controller : IMessageHandler
 
     public void OnMessage(Message message)
     {
-        try{
+        try
+        {
             switch (message.command)
             {
-                case -127:
+                case CMD.NOT_LOGIN:
+                    {
+                        messageNotLogin(message);
+                        break;
+                    }
+                case CMD.SUB_COMMAND:
                     {
                         Out.Log("Login OK");
                         break;
@@ -45,9 +51,45 @@ public class Controller : IMessageHandler
                         break;
                     }
             }
-        } catch (Exception ex)
+        }
+        catch (Exception ex)
         {
             Out.LogError(ex.ToString());
         }
     }
+
+    public void messageNotLogin(Message msg)
+    {
+        try
+        {
+            switch (msg.reader().ReadByte())
+            {
+                case CMD.LOGIN: 
+                    {
+                        Out.Log("Login OK");
+                        break;
+                    }
+                case CMD.REGISTER:
+                    {
+                        Out.Log("Register OK");
+                        break;
+                    }
+                default:
+                    {
+                        Out.Log("Command not found");
+                        break;
+                    }
+
+            }
+        }
+        catch (Exception)
+        {
+        }
+        finally
+        {
+            msg?.cleanup();
+        }
+    }
+
+
 }
