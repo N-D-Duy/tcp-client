@@ -4,6 +4,7 @@ public class Controller : IMessageHandler
 {
 
     private static Controller me;
+    private Service service = Service.gI();
     public static Controller gI()
     {
         me ??= new Controller();
@@ -30,14 +31,14 @@ public class Controller : IMessageHandler
         {
             switch (message.command)
             {
-                case CMD.NOT_LOGIN:
+                case CMD.NOT_IN_GAME:
                     {
-                        messageNotLogin(message);
+                        messageNotInGame(message);
                         break;
                     }
-                case CMD.SUB_COMMAND:
+                case CMD.IN_GAME:
                     {
-                        Out.Log("Login OK");
+                        messageInGame(message);
                         break;
                     }
                 case CMD.SERVER_MESSAGE:
@@ -58,18 +59,45 @@ public class Controller : IMessageHandler
         }
     }
 
-    public void messageNotLogin(Message msg)
+    private void messageInGame(Message message)
+    {
+        try
+        {
+            switch(message.reader().ReadByte())
+            {
+                case CMD.CREATE_PLAYER:
+                    {
+                        Console.WriteLine("Create player");
+                        break;
+                    }
+                default:
+                    {
+                        Out.Log("Command not found");
+                        break;
+                    }
+            }
+        } catch (Exception ex)
+        {
+            Out.LogError(ex.ToString());
+        }
+        finally
+        {
+            message?.cleanup();
+        }
+    }
+
+    public void messageNotInGame(Message msg)
     {
         try
         {
             switch (msg.reader().ReadByte())
             {
-                case CMD.LOGIN: 
+                case CMD.LOGIN_OK: 
                     {
-                        Out.Log("Login OK");
+                        service.clientOK();
                         break;
                     }
-                case CMD.REGISTER:
+                case CMD.REGISTER_OK:
                     {
                         Out.Log("Register OK");
                         break;

@@ -68,7 +68,7 @@ public class Session : ISession
 					}
 					try
 					{
-						if (message.command == -27)
+						if (message.command == CMD.GET_SESSION_ID)
 						{
 							getKey(message);
 						}
@@ -156,7 +156,7 @@ public class Session : ISession
 					b = readKey(b);
 				}
 				int num2;
-				if (b == -32)
+				if (b == CMD.FULL_SIZE)
 				{
 					b = dis.ReadSByte();
 					if (getKeyComplete)
@@ -322,7 +322,7 @@ public class Session : ISession
 		collectorThread.Start();
 		timeConnected = currentTimeMillis();
 		connecting = false;
-		doSendMessage(new Message(-27));
+		doSendMessage(new Message(CMD.GET_SESSION_ID));
 	}
 
 	public void SendMessage(Message message)

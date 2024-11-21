@@ -12,9 +12,9 @@ public class Service
 		return instance;
 	}
 
-    public Message messageNotLogin(sbyte command)
+    public Message messageNotInGame(sbyte command)
 	{
-		Message message = new Message(-29);
+		Message message = new Message(CMD.NOT_IN_GAME);
 		message.writer().writeByte(command);
 		return message;
 	}
@@ -24,7 +24,7 @@ public class Service
 		// gI().setClientType();
 		try
 		{
-			Message message = messageNotLogin(-127);
+			Message message = messageNotInGame(CMD.LOGIN);
 			message.writer().writeUTF(username);
 			message.writer().writeUTF(pass);
 			message.writer().writeUTF(version);
@@ -45,7 +45,7 @@ public class Service
 	{
 		try
 		{
-			Message message = messageNotLogin(-126);
+			Message message = messageNotInGame(CMD.REGISTER);
 			message.writer().writeUTF(username);
 			message.writer().writeUTF(pass);
 			session.SendMessage(message);
@@ -57,13 +57,10 @@ public class Service
 		}
 	}
 
-	public void sendSMS(string phone, string content)
-	{
+	public void clientOK(){
 		try
 		{
-			Message message = messageNotLogin(-124);
-			message.writer().writeUTF(phone);
-			message.writer().writeUTF(content);
+			Message message = messageNotInGame(CMD.CLIENT_OK);
 			session.SendMessage(message);
 			message.cleanup();
 		}
@@ -73,11 +70,13 @@ public class Service
 		}
 	}
 
+	
+
 	public void getClientInfo()
 	{
 		try
 		{
-			Message message = messageNotLogin(-125);
+			Message message = messageNotInGame(CMD.CLIENT_INFO);
 			session.SendMessage(message);
 			message.cleanup();
 		}
