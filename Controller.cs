@@ -46,6 +46,11 @@ public class Controller : IMessageHandler
                         Out.Log(message.reader().ReadUTF());
                         break;
                     }
+                case CMD.SERVER_DIALOG:
+                    {
+                        Out.Log(message.reader().ReadUTF());
+                        break;
+                    }
                 default:
                     {
                         Out.Log("Command not found");
@@ -67,7 +72,12 @@ public class Controller : IMessageHandler
             {
                 case CMD.CREATE_PLAYER:
                     {
-                        Console.WriteLine("Create player");
+                        service.CreatePlayer("duynguyen");
+                        break;
+                    }
+                case CMD.PLAYER_LOAD_ALL:
+                    {
+                        service.LoadAllPlayer(message);
                         break;
                     }
                 default:

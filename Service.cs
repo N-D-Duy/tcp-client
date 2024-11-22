@@ -19,6 +19,12 @@ public class Service
 		return message;
 	}
 
+	public Message messageInGame(sbyte command){
+		Message message = new Message(CMD.IN_GAME);
+		message.writer().writeByte(command);
+		return message;
+	}
+
     public void login(string username, string pass, string version)
 	{
 		// gI().setClientType();
@@ -34,6 +40,22 @@ public class Service
 			message.writer().writeByte(0);
 			session.SendMessage(message);
 			message.cleanup();
+		}
+		catch (Exception ex)
+		{
+			Out.LogError(ex.ToString());
+		}
+	}
+
+	public void LoadAllPlayer(Message mss){
+		try{
+			int id = mss.reader().ReadInt();
+			string name = mss.reader().ReadUTF();
+			int energy = mss.reader().ReadInt();
+			int maxEnergy = mss.reader().ReadInt();
+			sbyte level = mss.reader().ReadByte();
+
+			Out.Log("ID: " + id + " Name: " + name + " Energy: " + energy + " MaxExp: " + maxEnergy + " Level: " + level);
 		}
 		catch (Exception ex)
 		{
@@ -61,6 +83,19 @@ public class Service
 		try
 		{
 			Message message = messageNotInGame(CMD.CLIENT_OK);
+			session.SendMessage(message);
+			message.cleanup();
+		}
+		catch (Exception ex)
+		{
+			Out.LogError(ex.ToString());
+		}
+	}
+
+	public void CreatePlayer(string name){
+		try{
+			Message message = messageInGame(CMD.CREATE_PLAYER);
+			message.writer().writeUTF(name);
 			session.SendMessage(message);
 			message.cleanup();
 		}
