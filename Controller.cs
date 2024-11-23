@@ -80,6 +80,22 @@ public class Controller : IMessageHandler
                         service.LoadAllPlayer(message);
                         break;
                     }
+                case CMD.ME_UP_COIN_BAG:
+                    {
+                        service.MeUpCoinBag(message);
+                        break;
+                    }
+                case CMD.ME_LOAD_INFO:
+                    {
+                        service.MeLoadInfo(message);
+                        break;
+                    }
+                case CMD.PLAYER_LOAD_ENERGY:
+                    {
+                        Out.Log("Load energy");
+                        service.LoadEnergy(message);
+                        break;
+                    }
                 default:
                     {
                         Out.Log("Command not found");

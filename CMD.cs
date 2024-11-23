@@ -13,8 +13,9 @@ public class CMD
     public const sbyte PLAYER_UP_EXP = -4;
     public const sbyte PLAYER_LOAD_ALL = 4;
     public const sbyte CREATE_PLAYER = -5;
-    public const sbyte UPDATE_ENERGY = -5;
+    public const sbyte UPDATE_ENERGY = 5;
     public const sbyte PLAYER_LOAD_ENERGY = 6;
+    public const sbyte PLAYER_SAVE_WAVE = -6;
 
     // Main command for not in-game feat
     public const sbyte NOT_IN_GAME = -1;
